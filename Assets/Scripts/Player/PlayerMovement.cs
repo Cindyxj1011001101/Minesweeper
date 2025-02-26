@@ -10,14 +10,14 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("移动参数")]
-    [SerializeField] private float moveSpeed = 5f;        // 移动速度
-    private Rigidbody2D rb;                              // 刚体组件
-    private Vector2 moveDirection;                        // 移动方向
+    [DisplayName("移动速度")]
+    public float moveSpeed = 5f;// 移动速度
+    private Rigidbody2D rb;// 刚体组件
+    private Vector2 moveDirection; // 移动方向
 
     private void Start()
     {
-        // 获取组件
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();        // 获取组件
     }
 
     private void Update()
@@ -33,14 +33,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // 在FixedUpdate中进行物理移动
-        Move();
+        
+        Move();//在FixedUpdate中进行物理移动
     }
 
     private void Move()
     {
-        // 使用刚体移动
-        rb.velocity = moveDirection * moveSpeed;
+        rb.velocity = moveDirection * moveSpeed;// 使用刚体移动
     }
 
 

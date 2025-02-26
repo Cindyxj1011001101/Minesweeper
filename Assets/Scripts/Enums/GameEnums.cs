@@ -1,3 +1,5 @@
+using System;
+
 /// <summary>
 /// 鼠标按键枚举
 /// </summary>
@@ -24,12 +26,14 @@ public enum EventType
 /// <summary>
 /// 方块类型枚举
 /// </summary>
+[Serializable]
 public enum BlockType
 {
-    Wall,   // 墙
-    Empty,  // 空
-    Key,    // 钥匙
-    Mine    // 地雷
+    None = 0,   // 无
+    Wall = 1,   // 墙
+    Empty=2,  // 空
+    Key=3,    // 钥匙
+    Mine=4    // 地雷
 }
 
 /// <summary>

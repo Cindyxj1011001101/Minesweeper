@@ -2,23 +2,8 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EventManager : MonoBehaviour
+public class EventManager : Singleton<EventManager>
 {
-    private static EventManager instance;
-    // 单例实现
-    public static EventManager Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                GameObject go = new GameObject("EventManager");
-                instance = go.AddComponent<EventManager>();
-                DontDestroyOnLoad(go);
-            }
-            return instance;
-        }
-    }
 
     // 事件字典：无参数事件
     private Dictionary<EventType, Action> eventDictionary = new Dictionary<EventType, Action>();
@@ -28,19 +13,6 @@ public class EventManager : MonoBehaviour
         = new Dictionary<EventType, Dictionary<Type, Delegate>>();
 
 
-    //单例不销毁
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
 
     #region 无参数事件
     // 添加监听
