@@ -8,22 +8,33 @@ public class Click : MonoBehaviour
     [DisplayName("最大射线距离")]
     public float maxDistance = 100f;
 
+    [Header("点击设置")]
+    [DisplayName("点击冷却时间")]
+    public float clickCooldown = 0.5f;    // 点击冷却时间
+    private float nextClickTime = 0f;      // 下一次可以点击的时间
+
     public void Update()
     {
+        // 检查是否可以点击
+        if (Time.time < nextClickTime) return;
+
         // 左键点击
         if (Input.GetMouseButtonDown(0))
         {
             BlockDetect(MouseButton.Left);
+            nextClickTime = Time.time + clickCooldown;  // 设置下一次可点击时间
         }
         // 右键点击
         else if (Input.GetMouseButtonDown(1))
         {
             BlockDetect(MouseButton.Right);
+            nextClickTime = Time.time + clickCooldown;
         }
         // 中键点击
         else if (Input.GetMouseButtonDown(2))
         {
             BlockDetect(MouseButton.Middle);
+            nextClickTime = Time.time + clickCooldown;
         }
     }
     /// <summary>
@@ -45,8 +56,7 @@ public class Click : MonoBehaviour
             Block block = clickedObject.GetComponent<Block>();
             if (block != null)
             {
-                var args = new BlockClickEventArgs(block, mouseButton);
-                EventManager.Instance.TriggerEvent(EventType.ClickBlock, args);
+                block.OnClick(mouseButton);
             }
         }
     }

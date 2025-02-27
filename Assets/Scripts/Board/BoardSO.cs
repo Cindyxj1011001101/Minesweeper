@@ -12,9 +12,9 @@ public class BoardSO : ScriptableObject
     public int width;              // 地图宽度
     [DisplayName("地图高度")]
     public int height;             // 地图高度
-    [DisplayName("地雷数量")]
+    [DisplayName("地雷总数")]
     public int mineCount;         // 地雷数量
-    [DisplayName("钥匙数量")]
+    [DisplayName("钥匙总数")]
     public int keyCount;           // 钥匙数量
     [DisplayName("所属地图类型")]
     public LevelCategory levelCategory;

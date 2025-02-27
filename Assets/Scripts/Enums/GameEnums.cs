@@ -15,12 +15,7 @@ public enum MouseButton
 /// </summary>
 public enum EventType
 {
-    GameStart,
-    GameOver,
-    ClickBlock,
-    BlockOpened,
-    BlockFlagged,
-    BlockMiddleClicked
+    ChangeNeighbours
 }
 
 /// <summary>

@@ -12,6 +12,10 @@ public class PlayerMovement : MonoBehaviour
     [Header("移动参数")]
     [DisplayName("移动速度")]
     public float moveSpeed = 5f;// 移动速度
+
+    [Header("初始化")]
+    [DisplayName("初始位置设置")]
+    public Vector2 startPosition;// 初始位置
     private Rigidbody2D rb;// 刚体组件
     private Vector2 moveDirection; // 移动方向
 
