@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fe59c65f243dd3439fb282ed2c7d281, type: 3}
   m_Name: Level1
   m_EditorClassIdentifier: 
-  width: 13
-  height: 11
+  width: 15
+  height: 13
   mineCount: 10
   keyCount: 2
   levelCategory: 0

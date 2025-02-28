@@ -2,9 +2,47 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EventManager : Singleton<EventManager>
+public class EventManager : MonoBehaviour
 {
+    private static EventManager instance;
+    public static EventManager Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<EventManager>();
+                if (instance == null)
+                {
+                    GameObject go = new GameObject("EventManager");
+                    instance = go.AddComponent<EventManager>();
+                }
+            }
+            return instance;
+        }
+    }
 
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        if (instance == this)
+        {
+            instance = null;
+            // 清理所有事件监听
+            ClearEvents();
+        }
+    }
     // 事件字典：无参数事件
     private Dictionary<EventType, Action> eventDictionary = new Dictionary<EventType, Action>();
 

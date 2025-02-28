@@ -17,36 +17,45 @@ public class Board : MonoBehaviour
     [Range(0, 1)]
     public float blockSize;  // 控制地图块的显示大小
 
+    [Header("玩家")]
+    [DisplayName("玩家")]
+    public PlayerMovement player;
+
     /// <summary>
     /// 存储当前选中方块周围8个相邻的方块
     /// 顺序：左上、上、右上、左、右、左下、下、右下
     /// </summary>
+
     public Block[] neighbors = new Block[8];
 
     /// <summary>
     /// 初始化时调用，设置地图基本参数并创建地图
     /// </summary>
-    public void Awake()
+    public void Start()
     {
         boardSO.ValidateData();  // 验证地图数据的有效性
         blocks = new Block[boardSO.height, boardSO.width];  // 根据配置初始化地图数组
         this.GetComponent<GridLayoutGroup>().cellSize = new Vector2(blockSize, blockSize);  // 设置网格布局的单元格大小
         this.GetComponent<RectTransform>().sizeDelta = new Vector2(boardSO.width * blockSize, boardSO.height * blockSize);  // 设置地图整体大小
-        InitBoard();
-    }
+        InitBoard();    
+        player.GetComponent<PlayerMovement>().board = this;
+    }   
 
     /// <summary>
     /// 初始化地图，创建并设置所有地图块
     /// </summary>
     public void InitBoard()
     {
+        // 获取所有子物体
+        for(int i = 0; i < this.transform.childCount; i++)
+        {
+            blocks[i/boardSO.width, i%boardSO.width] = this.transform.GetChild(i).GetComponent<Block>();
+        }
         for (int i = 0; i < boardSO.height; i++)
         {
             for (int j = 0; j < boardSO.width; j++)
             {
                 // 实例化地图块预制体
-                blocks[i, j] = Instantiate(boardSO.blockPrefab, new Vector3(0, 0, 0), Quaternion.identity).GetComponent<Block>();
-                blocks[i, j].transform.SetParent(transform);  // 设置父物体
                 blocks[i, j].transform.localScale = new Vector3(blockSize, blockSize, 1);  // 设置大小
 
                 // 设置地图块属性

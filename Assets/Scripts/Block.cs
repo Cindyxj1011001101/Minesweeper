@@ -36,31 +36,61 @@ public class Block : MonoBehaviour
         //如果玩家进入方块触发器
         if (other.gameObject.CompareTag("Player"))
         {
-            SetNeighbours(other.GetComponentInParent<Board>());
+            board=this.GetComponentInParent<Board>();
+            SetNeighbours();
             int count = CountNeighbours();
             EventManager.Instance.TriggerEvent(EventType.ChangeNeighbours, count);
         }
     }
-    public void SetNeighbours(Board board)
+    public void SetNeighbours()
     {
-        board.neighbors[0] = board.blocks[BoardPos.x - 1, BoardPos.y - 1];
-        board.neighbors[1] = board.blocks[BoardPos.x - 1, BoardPos.y];
-        board.neighbors[2] = board.blocks[BoardPos.x - 1, BoardPos.y + 1];
-        board.neighbors[3] = board.blocks[BoardPos.x, BoardPos.y - 1];
-        board.neighbors[4] = board.blocks[BoardPos.x, BoardPos.y + 1];
-        board.neighbors[5] = board.blocks[BoardPos.x + 1, BoardPos.y - 1];
-        board.neighbors[6] = board.blocks[BoardPos.x + 1, BoardPos.y];
-        board.neighbors[7] = board.blocks[BoardPos.x + 1, BoardPos.y + 1];
-
+        board.neighbors = new Block[8];
+        if (BoardPos.x - 1 >= 0 && BoardPos.y - 1 >= 0)
+        {
+            board.neighbors[0] = board.blocks[BoardPos.x - 1, BoardPos.y - 1];
+        }
+        if (BoardPos.x - 1 >= 0 && BoardPos.y >= 0)
+        {
+            board.neighbors[1] = board.blocks[BoardPos.x - 1, BoardPos.y];
+        }
+        if (BoardPos.x - 1 >= 0 && BoardPos.y + 1 < board.boardSO.width)
+        {
+            board.neighbors[2] = board.blocks[BoardPos.x - 1, BoardPos.y + 1];
+        }
+        if (BoardPos.x >= 0 && BoardPos.y - 1 >= 0)
+        {
+            board.neighbors[3] = board.blocks[BoardPos.x, BoardPos.y - 1];
+        }
+        if (BoardPos.x >= 0 && BoardPos.y + 1 < board.boardSO.width)
+        {
+            board.neighbors[4] = board.blocks[BoardPos.x, BoardPos.y + 1];
+        }
+        if (BoardPos.x + 1 < board.boardSO.height && BoardPos.y - 1 >= 0)
+        {
+            board.neighbors[5] = board.blocks[BoardPos.x + 1, BoardPos.y - 1];
+        }
+        if (BoardPos.x + 1 < board.boardSO.height && BoardPos.y >= 0)
+        {
+            board.neighbors[6] = board.blocks[BoardPos.x + 1, BoardPos.y];
+        }
+        if (BoardPos.x + 1 < board.boardSO.height && BoardPos.y + 1 < board.boardSO.width)
+        {
+            board.neighbors[7] = board.blocks[BoardPos.x + 1, BoardPos.y + 1];
+        }
     }
     public int CountNeighbours()
     {
         int count = 0;
+        if (board== null) {
+            Debug.LogError("board 为空");
+            return count;
+        }
         foreach (var neighbor in board.neighbors)
         {
+            if (neighbor == null) continue;  // 跳过空的邻居
             if (neighbor.blockType == BlockType.Key)
                 return -1;
-            if (neighbor != null && neighbor.blockType == BlockType.Mine)
+            if (neighbor.blockType == BlockType.Mine)
             {
                 count++;
             }
