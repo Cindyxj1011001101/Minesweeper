@@ -18,6 +18,8 @@ public class BoardSO : ScriptableObject
     public int keyCount;           // 钥匙数量
     [DisplayName("所属地图类型")]
     public LevelCategory levelCategory;
+    [DisplayName("玩家初始位置")]
+    public Vector2Int playerStartPos;
 
     [Header("地图数据")]
     [DisplayName("地图数据CSV文件")]
@@ -32,6 +34,13 @@ public class BoardSO : ScriptableObject
 
     [Header("方块图片")]  
     public Sprite[] blockSprites;
+    //    None = 0,   // 无
+    //    Wall = 1,   // 墙
+    //    Empty=2,  // 空
+    //    Key=3,    // 钥匙
+    //    Mine=4    // 地雷
+    //    Flagged=5    // 被标记
+    //    Closed=6    // 未打开
 
     // 验证数据是否有效
     public bool ValidateData()

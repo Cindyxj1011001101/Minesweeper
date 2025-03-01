@@ -7,7 +7,7 @@ public enum MouseButton
 {
     Left,   // 左键
     Right,  // 右键
-    Middle  // 中键
+    Space  // 空格键
 }
 
 /// <summary>
@@ -15,7 +15,9 @@ public enum MouseButton
 /// </summary>
 public enum EventType
 {
-    ChangeNeighbours
+    ChangeNeighbours,
+    OpenKey,
+    OpenMine,
 }
 
 /// <summary>
@@ -28,7 +30,9 @@ public enum BlockType
     Wall = 1,   // 墙
     Empty=2,  // 空
     Key=3,    // 钥匙
-    Mine=4    // 地雷
+    Mine=4,    // 地雷
+    Flagged=5, // 被标记
+    Closed=6  // 未打开
 }
 
 /// <summary>

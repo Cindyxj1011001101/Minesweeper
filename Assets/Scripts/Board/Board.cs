@@ -17,16 +17,17 @@ public class Board : MonoBehaviour
     [Range(0, 1)]
     public float blockSize;  // 控制地图块的显示大小
 
-    [Header("玩家")]
+    [Header("数据传递")]
     [DisplayName("玩家")]
     public PlayerMovement player;
+    [DisplayName("点击")]
+    public Click click;
 
     /// <summary>
-    /// 存储当前选中方块周围8个相邻的方块
+    /// 存储玩家周围8个相邻的方块
     /// 顺序：左上、上、右上、左、右、左下、下、右下
     /// </summary>
-
-    public Block[] neighbors = new Block[8];
+     [HideInInspector]public Block[] neighbors = new Block[8];
 
     /// <summary>
     /// 初始化时调用，设置地图基本参数并创建地图
@@ -39,6 +40,7 @@ public class Board : MonoBehaviour
         this.GetComponent<RectTransform>().sizeDelta = new Vector2(boardSO.width * blockSize, boardSO.height * blockSize);  // 设置地图整体大小
         InitBoard();    
         player.GetComponent<PlayerMovement>().board = this;
+        click.GetComponent<Click>().board = this;
     }   
 
     /// <summary>
@@ -65,9 +67,16 @@ public class Board : MonoBehaviour
                 blocks[i, j].isAround = false;   // 初始化周围状态
                 blocks[i, j].levelCategory = boardSO.levelCategory;  // 设置关卡类别
                 blocks[i, j].BoardPos = new Vector2Int(i, j);  // 设置方块在地图中的位置
-
+                blocks[i, j].board=this.GetComponent<Board>();
                 // 设置地图块外观
-                blocks[i, j].GetComponent<SpriteRenderer>().sprite = boardSO.blockSprites[(int)boardSO.BlocksTypes[i][j]];
+                if(boardSO.BlocksTypes[i][j] == BlockType.None||boardSO.BlocksTypes[i][j] == BlockType.Wall)
+                {
+                    blocks[i, j].GetComponent<SpriteRenderer>().sprite = boardSO.blockSprites[(int)boardSO.BlocksTypes[i][j]];
+                }
+                else
+                {
+                    blocks[i, j].GetComponent<SpriteRenderer>().sprite = boardSO.blockSprites[(int)BlockType.Closed];
+                }
 
                 // 如果是空方块，启用触发器
                 if (boardSO.BlocksTypes[i][j] == BlockType.None)
@@ -76,5 +85,7 @@ public class Board : MonoBehaviour
                 }
             }
         }
+        player.GetComponent<PlayerMovement>().PresentBlock = boardSO.playerStartPos;
+        player.transform.position = blocks[boardSO.playerStartPos.x, boardSO.playerStartPos.y].transform.position;
     }
 }

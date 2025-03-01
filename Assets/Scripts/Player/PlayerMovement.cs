@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     [DisplayName("移动冷却时间")]
     public float moveCooldown = 0.1f;    // 移动冷却时间
     private float nextMoveTime = 0f;      // 下一次可以移动的时间
-    public Board board;
+    [HideInInspector] public Board board;
 
 
     private Rigidbody2D rb;

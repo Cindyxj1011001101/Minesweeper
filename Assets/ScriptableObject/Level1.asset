@@ -17,6 +17,7 @@ MonoBehaviour:
   mineCount: 10
   keyCount: 2
   levelCategory: 0
+  playerStartPos: {x: 12, y: 7}
   BoardBlockCSV: {fileID: 4900000, guid: 2fbbe26022716e641936acad2294a358, type: 3}
   blockPrefab: {fileID: 8286047706150903451, guid: 55f71b7ca324c244da1a8210d452b9ca, type: 3}
   blockSprites:
@@ -25,3 +26,5 @@ MonoBehaviour:
   - {fileID: -2413806693520163455, guid: 4adeaf2d2b1c7417e89f026626d8264f, type: 3}
   - {fileID: 21300000, guid: 1bb69cd91685d9248a58b144052746f3, type: 3}
   - {fileID: 21300000, guid: 2ced226d9df062547882002f633ab6ee, type: 3}
+  - {fileID: 21300000, guid: 48464cd53bb3c604f999e7d3f15e8d09, type: 3}
+  - {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}

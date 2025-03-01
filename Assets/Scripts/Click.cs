@@ -13,6 +13,8 @@ public class Click : MonoBehaviour
     public float clickCooldown = 0.5f;    // 点击冷却时间
     private float nextClickTime = 0f;      // 下一次可以点击的时间
 
+    [HideInInspector] public Board board;
+
     public void Update()
     {
         // 检查是否可以点击
@@ -30,10 +32,10 @@ public class Click : MonoBehaviour
             BlockDetect(MouseButton.Right);
             nextClickTime = Time.time + clickCooldown;
         }
-        // 中键点击
-        else if (Input.GetMouseButtonDown(2))
+        // 空格键点击
+        else if (Input.GetKeyDown(KeyCode.Space))
         {
-            BlockDetect(MouseButton.Middle);
+            SpaceDetect();
             nextClickTime = Time.time + clickCooldown;
         }
     }
@@ -53,10 +55,46 @@ public class Click : MonoBehaviour
             // 获取点击到的物体
             GameObject clickedObject = hit.collider.gameObject;
             // 获取Block组件（如果有的话）
-            Block block = clickedObject.GetComponent<Block>();
-            if (block != null)
+            Block clickedBlock = clickedObject.GetComponent<Block>();
+            if (clickedBlock != null)
             {
-                block.OnClick(mouseButton);
+                for(int i = 0; i < board.neighbors.Length; i++)
+                {
+                    
+                    if(board.neighbors[i] == clickedBlock)
+                    {
+                        clickedBlock.OnClick(mouseButton);
+                        return;
+                    }
+                }
+                
+            }
+        }
+    }
+
+    /// <summary>
+    /// 空格键点击检测
+    /// </summary>
+    public void SpaceDetect()
+    {
+        // 获取玩家周围8个相邻的方块
+        Block[] neighbors = board.neighbors;
+        // 遍历周围8个相邻的方块
+        foreach (Block neighbor in neighbors)
+        {
+            //如果周围有地雷且未标记
+            if(neighbor.blockType == BlockType.Mine&&neighbor.isFlagged==false)
+            {
+                Debug.Log("周围八格有地雷");
+                return;
+            }
+        }
+        //如果周围所有地雷都被标记则打开所有未被标记的方块
+        foreach (Block neighbor in neighbors)
+        {
+            if(neighbor.blockType != BlockType.Mine)
+            {
+                
             }
         }
     }

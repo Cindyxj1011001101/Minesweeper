@@ -15,6 +15,14 @@ public class MineNumChange : MonoBehaviour
     }
     public void OnChangeNeighbours(int count)
     {
-        this.GetComponent<Text>().text = count.ToString();
+        if(count==int.MaxValue)
+        {
+            Debug.Log("周围有钥匙");
+            this.GetComponent<Text>().text = "!";
+        }
+        else
+        {
+            this.GetComponent<Text>().text = count.ToString();
+        }
     }
 }
