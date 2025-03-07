@@ -3,7 +3,7 @@ using UnityEngine;
 using System;
 
 [RequireComponent(typeof(Text))]
-public class MineNumChange : MonoBehaviour
+public class RoundMineNumChange : MonoBehaviour
 {
     public void Start()
     {
@@ -17,7 +17,6 @@ public class MineNumChange : MonoBehaviour
     {
         if(count==int.MaxValue)
         {
-            Debug.Log("周围有钥匙");
             this.GetComponent<Text>().text = "!";
         }
         else

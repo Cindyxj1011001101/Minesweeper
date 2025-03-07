@@ -18,6 +18,8 @@ public enum EventType
     ChangeNeighbours,
     OpenKey,
     OpenMine,
+    MineNumChange,
+    KeyNumChange,
 }
 
 /// <summary>
@@ -32,7 +34,9 @@ public enum BlockType
     Key=3,    // 钥匙
     Mine=4,    // 地雷
     Flagged=5, // 被标记
-    Closed=6  // 未打开
+    Closed=6,  // 未打开
+    Door_Closed=7, // 门（未打开）
+    Door_Opened=8, // 门（已打开）
 }
 
 /// <summary>

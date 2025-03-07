@@ -22,12 +22,19 @@ public class Board : MonoBehaviour
     public PlayerMovement player;
     [DisplayName("点击")]
     public Click click;
+    [DisplayName("开门")]
+    public Open_Door open_Door;
 
     /// <summary>
     /// 存储玩家周围8个相邻的方块
     /// 顺序：左上、上、右上、左、右、左下、下、右下
     /// </summary>
      [HideInInspector]public Block[] neighbors = new Block[8];
+     [HideInInspector]public int neighborMineCount = 0;
+     [HideInInspector]public bool neighborKeyCount = false;
+     [HideInInspector]public int FlaggedMineCount = 0;
+     [HideInInspector]public int OpenedKeyCount = 0;
+
 
     /// <summary>
     /// 初始化时调用，设置地图基本参数并创建地图
@@ -42,7 +49,6 @@ public class Board : MonoBehaviour
         player.GetComponent<PlayerMovement>().board = this;
         click.GetComponent<Click>().board = this;
     }   
-
     /// <summary>
     /// 初始化地图，创建并设置所有地图块
     /// </summary>
@@ -69,13 +75,19 @@ public class Board : MonoBehaviour
                 blocks[i, j].BoardPos = new Vector2Int(i, j);  // 设置方块在地图中的位置
                 blocks[i, j].board=this.GetComponent<Board>();
                 // 设置地图块外观
-                if(boardSO.BlocksTypes[i][j] == BlockType.None||boardSO.BlocksTypes[i][j] == BlockType.Wall)
+                if(boardSO.BlocksTypes[i][j] == BlockType.None||boardSO.BlocksTypes[i][j] == BlockType.Wall||boardSO.BlocksTypes[i][j] == BlockType.Door_Closed)
                 {
                     blocks[i, j].GetComponent<SpriteRenderer>().sprite = boardSO.blockSprites[(int)boardSO.BlocksTypes[i][j]];
                 }
                 else
                 {
                     blocks[i, j].GetComponent<SpriteRenderer>().sprite = boardSO.blockSprites[(int)BlockType.Closed];
+                }
+                //如果该方块为门方块则在对象上增加Open_Door组件
+                if(boardSO.BlocksTypes[i][j] == BlockType.Door_Closed)
+                {
+                    blocks[i, j].gameObject.AddComponent<Open_Door>();
+                    blocks[i, j].GetComponent<Open_Door>().board = this;
                 }
 
                 // 如果是空方块，启用触发器
@@ -87,5 +99,7 @@ public class Board : MonoBehaviour
         }
         player.GetComponent<PlayerMovement>().PresentBlock = boardSO.playerStartPos;
         player.transform.position = blocks[boardSO.playerStartPos.x, boardSO.playerStartPos.y].transform.position;
+        EventManager.Instance.TriggerEvent(EventType.KeyNumChange, new KeyNumChangeEventArgs(0, boardSO.keyCount));
+        EventManager.Instance.TriggerEvent(EventType.MineNumChange, new MineNumChangeEventArgs(0, boardSO.mineCount));
     }
 }

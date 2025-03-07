@@ -23,12 +23,11 @@ public class Block : MonoBehaviour
     public LevelCategory levelCategory;//关卡大类
     [DisplayName("方块在地图中的位置")]
     public Vector2Int BoardPos;//方块在地图中的位置
-    [HideInInspector]public Board board;
+    [HideInInspector] public Board board;
 
     public void OnClick(MouseButton mouseButton)
     {
         // 处理点击逻辑
-        Debug.Log($"点击了方块: {this}, 按键类型: {mouseButton}");
         if (mouseButton == MouseButton.Left)
         {
             OnLeftClick();
@@ -41,45 +40,45 @@ public class Block : MonoBehaviour
 
     public void OnLeftClick()
     {
-        Debug.Log("左键点击翻开");
-        if(blockType == BlockType.Empty)
+        if (blockType == BlockType.Empty)
         {
-            isOpened=true;//设置为打开
+            isOpened = true;//设置为打开
             this.GetComponent<BoxCollider2D>().isTrigger = true;//设置为触发器
             this.GetComponent<SpriteRenderer>().sprite = board.boardSO.blockSprites[(int)BlockType.None];
         }
-        else if(blockType == BlockType.Key)
+        else if (blockType == BlockType.Key&&isOpened==false)
         {
-            isOpened=true;//设置为打开
+            isOpened = true;//设置为打开
             this.GetComponent<BoxCollider2D>().isTrigger = true;//设置为触发器
             EventManager.Instance.TriggerEvent(EventType.OpenKey);//触发钥匙
             this.GetComponent<SpriteRenderer>().sprite = board.boardSO.blockSprites[(int)BlockType.None];
-            //TODO：触发钥匙
-
+            EventManager.Instance.TriggerEvent(EventType.KeyNumChange, new KeyNumChangeEventArgs(++board.OpenedKeyCount, board.boardSO.keyCount));
         }
-        else if(blockType == BlockType.Mine)
+        else if (blockType == BlockType.Mine)
         {
-            Debug.Log("触发地雷");
             EventManager.Instance.TriggerEvent(EventType.OpenMine);//触发地雷
             this.GetComponent<SpriteRenderer>().sprite = board.boardSO.blockSprites[(int)BlockType.None];
             board.InitBoard();
-            //TODO:重置本局
         }
     }
 
-    public void OnRightClick()     
+    public void OnRightClick()
     {
-        Debug.Log("右键点击切换标记状态");
-        isFlagged=!isFlagged;//切换标记状态
-        if(isFlagged)
+        if (isOpened == false)//未被打开的方块
         {
-            this.GetComponent<SpriteRenderer>().sprite = board.boardSO.blockSprites[(int)BlockType.Flagged];
+            isFlagged = !isFlagged;//切换标记状态
+            if (isFlagged)
+            {
+                this.GetComponent<SpriteRenderer>().sprite = board.boardSO.blockSprites[(int)BlockType.Flagged];
+                EventManager.Instance.TriggerEvent(EventType.MineNumChange, new MineNumChangeEventArgs(++board.FlaggedMineCount, board.boardSO.mineCount));
+            }
+            else
+            {
+                this.GetComponent<SpriteRenderer>().sprite = board.boardSO.blockSprites[(int)BlockType.Closed];
+                EventManager.Instance.TriggerEvent(EventType.MineNumChange, new MineNumChangeEventArgs(--board.FlaggedMineCount, board.boardSO.mineCount));
+            }
+            UpdateRadar();
         }
-        else
-        {
-            this.GetComponent<SpriteRenderer>().sprite = board.boardSO.blockSprites[(int)BlockType.Closed];
-        }
-        UpdateRadar();
     }
     public void OnTriggerEnter2D(Collider2D other)
     {
@@ -88,13 +87,21 @@ public class Block : MonoBehaviour
         {
             SetNeighbours();
             UpdateRadar();
-
         }
     }
     public void UpdateRadar()
     {
-        int count = CountNeighbours();
-        EventManager.Instance.TriggerEvent(EventType.ChangeNeighbours, count);
+        board.neighborMineCount = CountNeighboursMine();
+        board.neighborKeyCount = CountNeighboursKey();
+        if (board.neighborKeyCount)
+        {
+            EventManager.Instance.TriggerEvent(EventType.ChangeNeighbours, int.MaxValue);
+        }
+        else
+        {
+            EventManager.Instance.TriggerEvent(EventType.ChangeNeighbours, board.neighborMineCount);
+        }
+
     }
     public void SetNeighbours()
     {
@@ -132,28 +139,38 @@ public class Block : MonoBehaviour
             board.neighbors[7] = board.blocks[BoardPos.x + 1, BoardPos.y + 1];
         }
     }
-    public int CountNeighbours()
+    public int CountNeighboursMine()
     {
         int count = 0;
-        if (board== null) {
+        if (board == null)
+        {
             Debug.LogError("board 为空");
             return count;
         }
         foreach (var neighbor in board.neighbors)
         {
             if (neighbor == null) continue;  // 跳过空的邻居
-            if (neighbor.blockType == BlockType.Key)//有钥匙则输出钥匙，不计算雷数量
-                return int.MaxValue;
             if (neighbor.blockType == BlockType.Mine)//有地雷则计算雷数量
             {
                 count++;
             }
-            if(neighbor.isFlagged == true)//有标记则减去一个雷
+            if (neighbor.isFlagged == true)//有标记则减去一个雷
             {
                 count--;
             }
         }
         return count;
+    }
+    public bool CountNeighboursKey()
+    {
+        foreach (var neighbor in board.neighbors)
+        {
+            if (neighbor != null && neighbor.blockType == BlockType.Key && neighbor.isOpened == false)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

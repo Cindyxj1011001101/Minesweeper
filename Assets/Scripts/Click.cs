@@ -58,16 +58,16 @@ public class Click : MonoBehaviour
             Block clickedBlock = clickedObject.GetComponent<Block>();
             if (clickedBlock != null)
             {
-                for(int i = 0; i < board.neighbors.Length; i++)
+                for (int i = 0; i < board.neighbors.Length; i++)
                 {
-                    
-                    if(board.neighbors[i] == clickedBlock)
+
+                    if (board.neighbors[i] == clickedBlock)
                     {
                         clickedBlock.OnClick(mouseButton);
                         return;
                     }
                 }
-                
+
             }
         }
     }
@@ -77,24 +77,14 @@ public class Click : MonoBehaviour
     /// </summary>
     public void SpaceDetect()
     {
-        // 获取玩家周围8个相邻的方块
-        Block[] neighbors = board.neighbors;
-        // 遍历周围8个相邻的方块
-        foreach (Block neighbor in neighbors)
+        if (board.neighborMineCount == 0)
         {
-            //如果周围有地雷且未标记
-            if(neighbor.blockType == BlockType.Mine&&neighbor.isFlagged==false)
+            foreach (Block neighbor in board.neighbors)
             {
-                Debug.Log("周围八格有地雷");
-                return;
-            }
-        }
-        //如果周围所有地雷都被标记则打开所有未被标记的方块
-        foreach (Block neighbor in neighbors)
-        {
-            if(neighbor.blockType != BlockType.Mine)
-            {
-                
+                if(neighbor!=null&&neighbor.isFlagged==false)
+                {
+                    neighbor.OnClick(MouseButton.Left);
+                }
             }
         }
     }

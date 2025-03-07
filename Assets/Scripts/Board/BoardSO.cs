@@ -34,14 +34,6 @@ public class BoardSO : ScriptableObject
 
     [Header("方块图片")]  
     public Sprite[] blockSprites;
-    //    None = 0,   // 无
-    //    Wall = 1,   // 墙
-    //    Empty=2,  // 空
-    //    Key=3,    // 钥匙
-    //    Mine=4    // 地雷
-    //    Flagged=5    // 被标记
-    //    Closed=6    // 未打开
-
     // 验证数据是否有效
     public bool ValidateData()
     {
@@ -73,7 +65,6 @@ public class BoardSO : ScriptableObject
             BlocksTypes = CSVReader.ReadBlockTypeCSV(BoardBlockCSV);
             //Debug.Log("地图数据CSV文件读取成功");
         }
-
         return true;
     }
 }
