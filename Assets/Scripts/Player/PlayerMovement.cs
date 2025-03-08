@@ -2,8 +2,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 using System.Collections;
 
-
-
 /// <summary>
 /// 玩家移动
 /// </summary>
@@ -21,7 +19,9 @@ public class PlayerMovement : MonoBehaviour
     [DisplayName("移动冷却时间")]
     public float moveCooldown = 0.1f;    // 移动冷却时间
     private float nextMoveTime = 0f;      // 下一次可以移动的时间
-    [HideInInspector] public Board board;
+    [SerializeField]
+    public Board board;
+    public bool EnterLevel = true;
 
 
     private Rigidbody2D rb;
@@ -29,15 +29,30 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
     }
 
     private void Update()
     {
-        // 检查是否可以移动
-        if (Time.time < nextMoveTime) return;
-        //获取按键输入
-        Vector2 moveDirection = GetInput();
-        Move(moveDirection);
+
+        if (!GlobalData.Instance.isDialogueMode)
+        {
+            if (EnterLevel)
+            {
+                this.transform.position = board.blocks[(int)PresentBlock.x, (int)PresentBlock.y].transform.position;
+                EnterLevel = false;
+            }
+            // 检查是否可以移动
+            if (!GlobalData.Instance.isDialogueMode)
+            {
+                if (Time.time < nextMoveTime) return;
+
+                //获取按键输入
+                Vector2 moveDirection = GetInput();
+                Move(moveDirection);
+            }
+        }
+
 
     }
     public void Move(Vector2 moveDirection)
@@ -79,22 +94,22 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W))
         {
             nextMoveTime = Time.time + moveCooldown;  // 设置下一次可移动时间
-            return new Vector2(-1,0);
+            return new Vector2(-1, 0);
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
             nextMoveTime = Time.time + moveCooldown;
-            return new Vector2(1,0);
+            return new Vector2(1, 0);
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
             nextMoveTime = Time.time + moveCooldown;
-            return new Vector2(0,-1);
+            return new Vector2(0, -1);
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
             nextMoveTime = Time.time + moveCooldown;
-            return new Vector2(0,1);
+            return new Vector2(0, 1);
         }
         return new Vector2(0, 0);
     }

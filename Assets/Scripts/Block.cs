@@ -71,11 +71,19 @@ public class Block : MonoBehaviour
             {
                 this.GetComponent<SpriteRenderer>().sprite = board.boardSO.blockSprites[(int)BlockType.Flagged];
                 EventManager.Instance.TriggerEvent(EventType.MineNumChange, new MineNumChangeEventArgs(++board.FlaggedMineCount, board.boardSO.mineCount));
+                if(this.blockType == BlockType.Mine)
+                {
+                    board.ActuralMineCount++;
+                }
             }
             else
             {
                 this.GetComponent<SpriteRenderer>().sprite = board.boardSO.blockSprites[(int)BlockType.Closed];
                 EventManager.Instance.TriggerEvent(EventType.MineNumChange, new MineNumChangeEventArgs(--board.FlaggedMineCount, board.boardSO.mineCount));
+                if(this.blockType == BlockType.Mine)
+                {
+                    board.ActuralMineCount--;
+                }
             }
             UpdateRadar();
         }
@@ -87,6 +95,11 @@ public class Block : MonoBehaviour
         {
             SetNeighbours();
             UpdateRadar();
+            if(this.GetComponent<Open_Door>()!=null&&this.GetComponent<Open_Door>().canLeaveLevel)
+            {
+                Debug.Log("通关本关");
+                EventManager.Instance.TriggerEvent(EventType.TriggerDialogue, new TriggerDialogueEventArgs(DialogeEvent.PassLevel, this));
+            }
         }
     }
     public void UpdateRadar()

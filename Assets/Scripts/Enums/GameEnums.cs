@@ -20,6 +20,7 @@ public enum EventType
     OpenMine,
     MineNumChange,
     KeyNumChange,
+    TriggerDialogue
 }
 
 /// <summary>

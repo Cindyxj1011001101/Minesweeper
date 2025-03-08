@@ -13,31 +13,35 @@ public class Click : MonoBehaviour
     public float clickCooldown = 0.5f;    // 点击冷却时间
     private float nextClickTime = 0f;      // 下一次可以点击的时间
 
-    [HideInInspector] public Board board;
+    public Board board;
 
     public void Update()
     {
-        // 检查是否可以点击
-        if (Time.time < nextClickTime) return;
+        if (!GlobalData.Instance.isDialogueMode)
+        {
+            // 检查是否可以点击
+            if (Time.time < nextClickTime) return;
 
-        // 左键点击
-        if (Input.GetMouseButtonDown(0))
-        {
-            BlockDetect(MouseButton.Left);
-            nextClickTime = Time.time + clickCooldown;  // 设置下一次可点击时间
+            // 左键点击
+            if (Input.GetMouseButtonDown(0))
+            {
+                BlockDetect(MouseButton.Left);
+                nextClickTime = Time.time + clickCooldown;  // 设置下一次可点击时间
+            }
+            // 右键点击
+            else if (Input.GetMouseButtonDown(1))
+            {
+                BlockDetect(MouseButton.Right);
+                nextClickTime = Time.time + clickCooldown;
+            }
+            // 空格键点击
+            else if (Input.GetKeyDown(KeyCode.Space))
+            {
+                SpaceDetect();
+                nextClickTime = Time.time + clickCooldown;
+            }
         }
-        // 右键点击
-        else if (Input.GetMouseButtonDown(1))
-        {
-            BlockDetect(MouseButton.Right);
-            nextClickTime = Time.time + clickCooldown;
-        }
-        // 空格键点击
-        else if (Input.GetKeyDown(KeyCode.Space))
-        {
-            SpaceDetect();
-            nextClickTime = Time.time + clickCooldown;
-        }
+
     }
     /// <summary>
     /// 方块点击检测
@@ -81,7 +85,7 @@ public class Click : MonoBehaviour
         {
             foreach (Block neighbor in board.neighbors)
             {
-                if(neighbor!=null&&neighbor.isFlagged==false)
+                if (neighbor != null && neighbor.isFlagged == false)
                 {
                     neighbor.OnClick(MouseButton.Left);
                 }
