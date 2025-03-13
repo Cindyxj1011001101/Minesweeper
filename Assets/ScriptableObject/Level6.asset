@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0fe59c65f243dd3439fb282ed2c7d281, type: 3}
-  m_Name: Level4
+  m_Name: Level6
   m_EditorClassIdentifier: 
   width: 23
   height: 14
-  mineCount: 20
+  mineCount: 30
   keyCount: 3
   levelCategory: 0
   playerStartPos: {x: 12, y: 14}
-  BoardBlockCSV: {fileID: 4900000, guid: b44c4aab901f75b488dfaf7e3f92097b, type: 3}
+  BoardBlockCSV: {fileID: 4900000, guid: c2c90f5833d10084d9ff215eed6e3a75, type: 3}
   blockPrefab: {fileID: 8286047706150903451, guid: 55f71b7ca324c244da1a8210d452b9ca, type: 3}
   blockSprites:
   - {fileID: 0}
