@@ -27,6 +27,10 @@ public class Block : MonoBehaviour
 
     public void OnClick(MouseButton mouseButton)
     {
+        if(blockType == BlockType.Wall||blockType == BlockType.None||blockType == BlockType.Door_Closed||blockType == BlockType.Door_Opened)
+        {
+            return;
+        }
         // 处理点击逻辑
         if (mouseButton == MouseButton.Left)
         {
@@ -40,6 +44,10 @@ public class Block : MonoBehaviour
 
     public void OnLeftClick()
     {
+        if(isFlagged)
+        {
+            return;
+        }
         if (blockType == BlockType.Empty)
         {
             isOpened = true;//设置为打开
