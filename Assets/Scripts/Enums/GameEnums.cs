@@ -20,7 +20,8 @@ public enum EventType
     OpenMine,
     MineNumChange,
     KeyNumChange,
-    TriggerDialogue
+    TriggerDialogue,
+    CameraMove
 }
 
 /// <summary>

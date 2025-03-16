@@ -59,6 +59,8 @@ public class PlayerMovement : MonoBehaviour
     {
         //获取目标位置
         Vector2 targetPosition = GetTargetPosition(moveDirection);
+        //触发摄像机移动
+        EventManager.Instance.TriggerEvent(EventType.CameraMove, targetPosition);
         //移动
         this.transform.position = Vector2.Lerp(transform.position, targetPosition, Time.deltaTime * moveSpeed);
     }
