@@ -8616,7 +8616,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &411834514
 Transform:
   m_ObjectHideFlags: 0
@@ -8645,7 +8645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Dialoge: {fileID: 759401728}
-  DialogContent: {fileID: 4900000, guid: 4a72879e91ddf9a45af03f9bbec6bd93, type: 3}
+  DialogContent: {fileID: 4900000, guid: f3a05ac415d71884db45a58e958cd9c6, type: 3}
   DialogCondition:
   - Condition: 0
     BlockPosition: []
