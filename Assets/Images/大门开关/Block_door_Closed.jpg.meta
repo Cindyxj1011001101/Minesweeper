@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< Updated upstream:Assets/Images/大门开关/Block_door_Closed.jpg.meta
 guid: dca752129b123514289889cabd8e1d2e
+========
+guid: b1f9506edb4b04b40935739f82334c13
+>>>>>>>> Stashed changes:Assets/Images/Blocks/Block_door_Opened.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 2000
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
