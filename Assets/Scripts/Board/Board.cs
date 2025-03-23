@@ -90,6 +90,8 @@ public class Board : MonoBehaviour
                 {
                     blocks[i, j].GetComponent<BoxCollider2D>().isTrigger = true;
                 }
+                //设定方块视觉层级
+                blocks[i, j].GetComponent<SpriteRenderer>().sortingOrder = i;
             }
         }
         EventManager.Instance.TriggerEvent(EventType.KeyNumChange, new KeyNumChangeEventArgs(0, boardSO.keyCount));

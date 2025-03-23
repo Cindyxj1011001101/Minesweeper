@@ -25,10 +25,11 @@ public class PlayerMovement : MonoBehaviour
 
 
     private Rigidbody2D rb;
-
+    private Animator ani;
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponentInChildren<Rigidbody2D>();
+        ani = GetComponentInChildren<Animator>();
 
     }
 
@@ -46,10 +47,10 @@ public class PlayerMovement : MonoBehaviour
             if (!GlobalData.Instance.isDialogueMode)
             {
                 if (Time.time < nextMoveTime) return;
-
                 //获取按键输入
                 Vector2 moveDirection = GetInput();
                 Move(moveDirection);
+
             }
         }
 
@@ -57,8 +58,22 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Move(Vector2 moveDirection)
     {
+
         //获取目标位置
         Vector2 targetPosition = GetTargetPosition(moveDirection);
+        if (targetPosition != new Vector2(transform.position.x, transform.position.y))
+        {
+            if (moveDirection.x != 0 || moveDirection.y != 0)
+            {
+                ani.SetFloat("Horizontal", moveDirection.x);
+                ani.SetFloat("Vertical", moveDirection.y);
+                ani.SetBool("IsWalk", true);
+            }
+            else
+            {
+                ani.SetBool("IsWalk", false);
+            }
+        }
         //触发摄像机移动
         EventManager.Instance.TriggerEvent(EventType.CameraMove, targetPosition);
         //移动
