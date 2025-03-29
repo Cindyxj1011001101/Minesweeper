@@ -30,3 +30,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d6a410be4ab390148bfa71e3cf528485, type: 3}
   - {fileID: 21300000, guid: 76a169f3a3cd3bb4a9bdb5c8f867b1b2, type: 3}
   - {fileID: 21300000, guid: b1f9506edb4b04b40935739f82334c13, type: 3}
+  nextSceneName: L5

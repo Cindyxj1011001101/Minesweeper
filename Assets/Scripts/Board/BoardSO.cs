@@ -34,6 +34,8 @@ public class BoardSO : ScriptableObject
 
     [Header("方块图片")]  
     public Sprite[] blockSprites;
+    [DisplayName("下一场景名称")]
+    public string nextSceneName;
     // 验证数据是否有效
     public bool ValidateData()
     {

@@ -22,11 +22,12 @@ MonoBehaviour:
   blockPrefab: {fileID: 8286047706150903451, guid: 55f71b7ca324c244da1a8210d452b9ca, type: 3}
   blockSprites:
   - {fileID: 0}
-  - {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  - {fileID: -2413806693520163455, guid: 4adeaf2d2b1c7417e89f026626d8264f, type: 3}
-  - {fileID: 21300000, guid: 1bb69cd91685d9248a58b144052746f3, type: 3}
-  - {fileID: 21300000, guid: 2ced226d9df062547882002f633ab6ee, type: 3}
-  - {fileID: 21300000, guid: 48464cd53bb3c604f999e7d3f15e8d09, type: 3}
-  - {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}
-  - {fileID: 21300000, guid: 3492e9eb6292141eb942d0c9beface29, type: 3}
-  - {fileID: 21300000, guid: ea5547bcdee4e4a8cb4705499aabe76d, type: 3}
+  - {fileID: 21300000, guid: c94fb6073128a794380f8ca90421988e, type: 3}
+  - {fileID: 21300000, guid: d6a410be4ab390148bfa71e3cf528485, type: 3}
+  - {fileID: 21300000, guid: 954a9faa2bb4cba4cb7e8f4b3305c90f, type: 3}
+  - {fileID: 21300000, guid: 27381a79b537c6a41a5a55008620c59d, type: 3}
+  - {fileID: 21300000, guid: 2f4461cdd3670384cb97bf1917fead14, type: 3}
+  - {fileID: 21300000, guid: d6a410be4ab390148bfa71e3cf528485, type: 3}
+  - {fileID: 21300000, guid: 76a169f3a3cd3bb4a9bdb5c8f867b1b2, type: 3}
+  - {fileID: 21300000, guid: b1f9506edb4b04b40935739f82334c13, type: 3}
+  nextSceneName: L2

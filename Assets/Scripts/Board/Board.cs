@@ -83,6 +83,7 @@ public class Board : MonoBehaviour
                 {
                     blocks[i, j].gameObject.AddComponent<Open_Door>();
                     blocks[i, j].GetComponent<Open_Door>().board = this;
+                    blocks[i, j].GetComponent<Open_Door>().sceneName = boardSO.nextSceneName;
                 }
 
                 // 如果是空方块，启用触发器

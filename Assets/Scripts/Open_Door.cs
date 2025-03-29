@@ -3,6 +3,7 @@ using UnityEngine;
 public class Open_Door : MonoBehaviour
 {
     public bool canLeaveLevel = false;
+    public string sceneName;
     [HideInInspector]public Board board;
     public void Update(){
         if(board!=null && board.OpenedKeyCount == board.boardSO.keyCount){
@@ -10,6 +11,13 @@ public class Open_Door : MonoBehaviour
             this.GetComponent<BoxCollider2D>().isTrigger = true;
             this.GetComponent<Block>().isOpened = true;
             canLeaveLevel = true;
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player") && canLeaveLevel)
+        {
+            FindObjectOfType<SceneFader>().FadeToScene(sceneName);
         }
     }
 }
