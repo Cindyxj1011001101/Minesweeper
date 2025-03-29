@@ -18,7 +18,7 @@ MonoBehaviour:
   keyCount: 3
   levelCategory: 0
   playerStartPos: {x: 12, y: 14}
-  BoardBlockCSV: {fileID: 4900000, guid: 2fbbe26022716e641936acad2294a358, type: 3}
+  BoardBlockCSV: {fileID: 4900000, guid: 2edf627a1056f57469a30e1a152d4376, type: 3}
   blockPrefab: {fileID: 8286047706150903451, guid: 55f71b7ca324c244da1a8210d452b9ca, type: 3}
   blockSprites:
   - {fileID: 0}
