@@ -21,7 +21,8 @@ public enum EventType
     MineNumChange,
     KeyNumChange,
     TriggerDialogue,
-    CameraMove
+    CameraMove,
+    PlayerPosChange
 }
 
 /// <summary>

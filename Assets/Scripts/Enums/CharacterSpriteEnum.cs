@@ -2,5 +2,6 @@
 public enum CharacterSpriteEnum
 {
     BOSS,
-    ANOTHER_VOICE
+    ANOTHER_VOICE,
+    PLAYER
 }

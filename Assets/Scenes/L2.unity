@@ -10951,7 +10951,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &411834514
 Transform:
   m_ObjectHideFlags: 0
@@ -37856,6 +37856,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boardSO: {fileID: 11400000, guid: 88d0dfc953cb6d44095bf275fe542e04, type: 2}
   blockSize: 0.7
+  player: {fileID: 0}
   neighbors: []
   neighborMineCount: 0
   neighborKeyCount: 0

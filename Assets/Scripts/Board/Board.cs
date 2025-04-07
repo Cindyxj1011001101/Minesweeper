@@ -17,7 +17,7 @@ public class Board : MonoBehaviour
     [Range(0, 1)]
     public float blockSize;  // 控制地图块的显示大小
 
-
+    [Header("玩家对象")] public GameObject player;
 
     /// <summary>
     /// 存储玩家周围8个相邻的方块
@@ -37,8 +37,8 @@ public class Board : MonoBehaviour
     {
         boardSO.ValidateData();  // 验证地图数据的有效性
         blocks = new Block[boardSO.height, boardSO.width];  // 根据配置初始化地图数组
-        this.GetComponent<GridLayoutGroup>().cellSize = new Vector2(blockSize, blockSize);  // 设置网格布局的单元格大小
-        this.GetComponent<RectTransform>().sizeDelta = new Vector2(boardSO.width * blockSize, boardSO.height * blockSize);  // 设置地图整体大小
+        GetComponent<GridLayoutGroup>().cellSize = new Vector2(blockSize, blockSize);  // 设置网格布局的单元格大小
+        GetComponent<RectTransform>().sizeDelta = new Vector2(boardSO.width * blockSize, boardSO.height * blockSize);  // 设置地图整体大小
         InitBoard();
         EventManager.Instance.TriggerEvent(EventType.TriggerDialogue, new TriggerDialogueEventArgs(DialogeEvent.EnterLevel, null));
         //触发初次进入关卡的剧情
@@ -97,5 +97,6 @@ public class Board : MonoBehaviour
         }
         EventManager.Instance.TriggerEvent(EventType.KeyNumChange, new KeyNumChangeEventArgs(0, boardSO.keyCount));
         EventManager.Instance.TriggerEvent(EventType.MineNumChange, new MineNumChangeEventArgs(0, boardSO.mineCount));
+        EventManager.Instance.TriggerEvent(EventType.PlayerPosChange, boardSO.playerStartPos);
     }
 }

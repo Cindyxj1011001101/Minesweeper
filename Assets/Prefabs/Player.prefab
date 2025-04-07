@@ -158,6 +158,7 @@ MonoBehaviour:
   moveCooldown: 0.1
   board: {fileID: 0}
   EnterLevel: 1
+  InitSprite: {fileID: 1599702350, guid: 875826af7be80114eb385240ed97e624, type: 3}
 --- !u!50 &2516772716164990143
 Rigidbody2D:
   serializedVersion: 4

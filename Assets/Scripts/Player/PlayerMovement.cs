@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     public Board board;
     public bool EnterLevel = true;
-
+    public Sprite InitSprite;
 
     private Rigidbody2D rb;
     private Animator ani;
@@ -30,19 +30,28 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponentInChildren<Rigidbody2D>();
         ani = GetComponentInChildren<Animator>();
-
+        EventManager.Instance.AddListener<Vector2Int>(EventType.PlayerPosChange, OnPlayerPosChange);
     }
-
+    public void OnDestroy()
+    {
+        EventManager.Instance.RemoveListener<Vector2Int>(EventType.KeyNumChange, OnPlayerPosChange);
+    }
+    public void OnPlayerPosChange(Vector2Int args)
+    {
+        PresentBlock = args;
+        ani.SetFloat("Horizontal",-1);
+        Vector2 targetPosition = GetTargetPosition(Vector2.zero);
+        transform.position = targetPosition;
+    }
     private void Update()
     {
-
+        if (EnterLevel)
+        {
+            this.transform.position = board.blocks[(int)PresentBlock.x, (int)PresentBlock.y].transform.position;
+            EnterLevel = false;
+        }
         if (!GlobalData.Instance.isDialogueMode)
         {
-            if (EnterLevel)
-            {
-                this.transform.position = board.blocks[(int)PresentBlock.x, (int)PresentBlock.y].transform.position;
-                EnterLevel = false;
-            }
             // 检查是否可以移动
             if (!GlobalData.Instance.isDialogueMode)
             {
@@ -50,7 +59,6 @@ public class PlayerMovement : MonoBehaviour
                 //获取按键输入
                 Vector2 moveDirection = GetInput();
                 Move(moveDirection);
-
             }
         }
 
