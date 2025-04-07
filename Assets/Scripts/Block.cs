@@ -51,8 +51,10 @@ public class Block : MonoBehaviour
         if (blockType == BlockType.Empty)
         {
             isOpened = true;//设置为打开
-            this.GetComponent<BoxCollider2D>().isTrigger = true;//设置为触发器
-            this.GetComponent<SpriteRenderer>().sprite = board.boardSO.blockSprites[(int)BlockType.None];
+            GetComponent<BoxCollider2D>().isTrigger = true;//设置为触发器
+            GetComponent<SpriteRenderer>().sprite = board.boardSO.blockSprites[(int)BlockType.None];
+            //触发左键点击方块
+            EventManager.Instance.TriggerEvent(EventType.TriggerDialogue,new TriggerDialogueEventArgs(DialogeEvent.LeftClickBlock, GetComponent<Block>()));
         }
         else if (blockType == BlockType.Key&&isOpened==false)
         {
@@ -61,6 +63,8 @@ public class Block : MonoBehaviour
             EventManager.Instance.TriggerEvent(EventType.OpenKey);//触发钥匙
             this.GetComponent<SpriteRenderer>().sprite = board.boardSO.blockSprites[(int)BlockType.None];
             EventManager.Instance.TriggerEvent(EventType.KeyNumChange, new KeyNumChangeEventArgs(++board.OpenedKeyCount, board.boardSO.keyCount));
+            //触发左键点击方块
+            EventManager.Instance.TriggerEvent(EventType.TriggerDialogue,new TriggerDialogueEventArgs(DialogeEvent.LeftClickBlock, GetComponent<Block>()));
         }
         else if (blockType == BlockType.Mine)
         {
@@ -74,6 +78,8 @@ public class Block : MonoBehaviour
     {
         if (isOpened == false)//未被打开的方块
         {
+            //触发对话右键标记
+            EventManager.Instance.TriggerEvent(EventType.TriggerDialogue,new TriggerDialogueEventArgs(DialogeEvent.RightClickBlock, GetComponent<Block>()));
             isFlagged = !isFlagged;//切换标记状态
             if (isFlagged)
             {

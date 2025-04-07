@@ -13,9 +13,10 @@ public class Open_Door : MonoBehaviour
             canLeaveLevel = true;
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && canLeaveLevel)
+        if (collision.gameObject.CompareTag("Player") && canLeaveLevel&&!GlobalData.Instance.isDialogueMode)
         {
             FindObjectOfType<SceneFader>().FadeToScene(sceneName);
         }
