@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.ComponentModel;
+using UnityEngine.UI;
 
 
 /// <summary>
@@ -27,9 +28,14 @@ public class Block : MonoBehaviour
 
     public void OnClick(MouseButton mouseButton)
     {
-        if(blockType == BlockType.Wall||blockType == BlockType.None||blockType == BlockType.Door_Closed||blockType == BlockType.Door_Opened)
+        if(blockType == BlockType.Wall||blockType == BlockType.None||blockType == BlockType.Door_Opened)
         {
             return;
+        }
+
+        if (blockType == BlockType.Door_Closed && mouseButton == MouseButton.Left)
+        {
+            GlobalData.Instance.Message.gameObject.SetActive(true);
         }
         // 处理点击逻辑
         if (mouseButton == MouseButton.Left)

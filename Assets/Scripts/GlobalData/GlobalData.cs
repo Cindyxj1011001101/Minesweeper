@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// 全局数据
@@ -7,5 +8,6 @@ public class GlobalData:Singleton<GlobalData>
 {
     public Board board;
     [HideInInspector]public bool isDialogueMode = false;
+    public Image Message;
 
 }
