@@ -5,11 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="743d718c-d37d-4c0d-b843-15aae3e035f2" name="更改" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Minesweeper/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Minesweeper/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/L1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/L1.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Block.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Block.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Open_Door.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Open_Door.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.Minesweeper/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.Minesweeper/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.Minesweeper/.idea/indexLayout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.Minesweeper/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.Minesweeper/.idea/projectSettingsUpdater.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.Minesweeper/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EnteGameButton.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Canvas.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SceneFader.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/InitScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/InitScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/L1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/L1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/L2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/L2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/L3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/L3.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/L4.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/L4.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/L5.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/L5.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/L6.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/L6.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/L7.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/L7.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/L8.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/L8.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/L9.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/L9.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Board/Board.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Board/Board.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enums/CharacterSpriteEnum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enums/CharacterSpriteEnum.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enums/GameEnums.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enums/GameEnums.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+>>>>>>> 660fee4ae9db1a9b8ea101268ead014fd8ff2aef
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +127,10 @@
       <workItem from="1744039176861" duration="64000" />
       <workItem from="1744040303433" duration="2613000" />
       <workItem from="1744042959955" duration="195000" />
+<<<<<<< HEAD
       <workItem from="1744074248277" duration="1313000" />
+=======
+>>>>>>> 660fee4ae9db1a9b8ea101268ead014fd8ff2aef
     </task>
     <servers />
   </component>

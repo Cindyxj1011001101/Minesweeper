@@ -7126,25 +7126,10 @@ MonoBehaviour:
     BlockPosition: []
     DialogeValue: 1
     TriggerOnce: 1
-  - Condition: 6
-    BlockPosition:
-    - {x: 8, y: 9}
-    - {x: 8, y: 13}
-    DialogeValue: 2
-    TriggerOnce: 1
-<<<<<<< HEAD
-  - Condition: 6
-    BlockPosition:
-    - {x: 2, y: 9}
-    - {x: 2, y: 13}
-    DialogeValue: 3
-    TriggerOnce: 1
   - Condition: 1
     BlockPosition: []
-    DialogeValue: 4
+    DialogeValue: 2
     TriggerOnce: 1
-=======
->>>>>>> 660fee4ae9db1a9b8ea101268ead014fd8ff2aef
   Sprite_Left: {fileID: 1733485134}
   Sprite_Right: {fileID: 1950543267}
   NameText: {fileID: 925151424}
@@ -32842,10 +32827,6 @@ PrefabInstance:
     - target: {fileID: 5361211206916483292, guid: e96f2b08a99b57546bc235a9839c79d9, type: 3}
       propertyPath: m_Name
       value: Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 5361211208516974791, guid: e96f2b08a99b57546bc235a9839c79d9, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e96f2b08a99b57546bc235a9839c79d9, type: 3}
