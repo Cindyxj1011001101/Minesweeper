@@ -98,5 +98,7 @@ public class Board : MonoBehaviour
         EventManager.Instance.TriggerEvent(EventType.KeyNumChange, new KeyNumChangeEventArgs(0, boardSO.keyCount));
         EventManager.Instance.TriggerEvent(EventType.MineNumChange, new MineNumChangeEventArgs(0, boardSO.mineCount));
         EventManager.Instance.TriggerEvent(EventType.PlayerPosChange, boardSO.playerStartPos);
+        //初始化信息设定为关闭
+        GlobalData.Instance.Message.gameObject.SetActive(false);
     }
 }
