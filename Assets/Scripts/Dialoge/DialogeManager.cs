@@ -16,8 +16,6 @@ public class DialogeManager : MonoBehaviour
 
     [DisplayName("左图像")]
     public Image Sprite_Left;
-    [DisplayName("右图像")]
-    public Image Sprite_Right;
     [DisplayName("姓名框")]
     public Text NameText;
     [DisplayName("对话内容")]

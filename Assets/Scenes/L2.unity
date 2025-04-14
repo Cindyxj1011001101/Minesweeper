@@ -10274,6 +10274,10 @@ MonoBehaviour:
     BlockPosition: []
     DialogeValue: 2
     TriggerOnce: 1
+  - Condition: 9
+    BlockPosition: []
+    DialogeValue: 3
+    TriggerOnce: 1
   Sprite_Left: {fileID: 1397339459}
   Sprite_Right: {fileID: 0}
   NameText: {fileID: 1397339456}
@@ -30348,6 +30352,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1619337356505549362, guid: e96f2b08a99b57546bc235a9839c79d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5361211206916483288, guid: e96f2b08a99b57546bc235a9839c79d9, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -30444,6 +30452,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6544535299318503995, guid: e96f2b08a99b57546bc235a9839c79d9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f74dfd9e78182fc46bf8386c7f529037, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e96f2b08a99b57546bc235a9839c79d9, type: 3}
 --- !u!114 &1397339456 stripped
@@ -30466,6 +30478,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1397339458 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6544535299318503995, guid: e96f2b08a99b57546bc235a9839c79d9, type: 3}
+  m_PrefabInstance: {fileID: 1397339455}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1397339459 stripped
@@ -32847,7 +32870,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   board: {fileID: 1808285571}
   isDialogueMode: 0
-  Message: {fileID: 0}
+  Message: {fileID: 1397339458}
 --- !u!1 &1530355875
 GameObject:
   m_ObjectHideFlags: 0

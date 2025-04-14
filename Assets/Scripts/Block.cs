@@ -74,6 +74,7 @@ public class Block : MonoBehaviour
         }
         else if (blockType == BlockType.Mine)
         {
+            EventManager.Instance.TriggerEvent(EventType.TriggerDialogue,new TriggerDialogueEventArgs(DialogeEvent.Die,GetComponent<Block>()));
             EventManager.Instance.TriggerEvent(EventType.OpenMine);//触发地雷
             this.GetComponent<SpriteRenderer>().sprite = board.boardSO.blockSprites[(int)BlockType.None];
             board.InitBoard();
