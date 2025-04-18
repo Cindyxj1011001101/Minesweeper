@@ -8587,7 +8587,6 @@ MonoBehaviour:
     DialogeValue: 4
     TriggerOnce: 1
   Sprite_Left: {fileID: 1733485134}
-  Sprite_Right: {fileID: 0}
   NameText: {fileID: 925151424}
   DialogText: {fileID: 269285328}
   CharacterSprite:
@@ -31992,9 +31991,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5361211208516974790, guid: e96f2b08a99b57546bc235a9839c79d9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 28
+      objectReference: {fileID: 0}
     - target: {fileID: 5361211208516974791, guid: e96f2b08a99b57546bc235a9839c79d9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6544535299318503995, guid: e96f2b08a99b57546bc235a9839c79d9, type: 3}
       propertyPath: m_Sprite
