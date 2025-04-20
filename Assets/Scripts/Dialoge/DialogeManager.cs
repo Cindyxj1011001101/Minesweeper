@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEditor;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.EventSystems;
 
 public class DialogeManager : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class DialogeManager : MonoBehaviour
 
     public void Start()
     {
+        Debug.Log("Start");
         EventManager.Instance.AddListener<TriggerDialogueEventArgs>(EventType.TriggerDialogue, TriggerDialogue);
     }
     public void OnDestroy()
@@ -40,7 +42,22 @@ public class DialogeManager : MonoBehaviour
     {
         if (GlobalData.Instance.isDialogueMode&&Input.GetMouseButtonDown(0))
         {
-            UpdateDialog();
+            // 创建一个指针事件数据
+            PointerEventData eventData = new PointerEventData(EventSystem.current);
+            eventData.position = Input.mousePosition;
+        
+            // 创建一个列表来存储射线结果
+            List<RaycastResult> results = new List<RaycastResult>();
+        
+            // 进行射线检测
+            EventSystem.current.RaycastAll(eventData, results);
+        
+            // 返回第一个检测到的UI元素
+            GameObject res=results.Count > 0 ? results[0].gameObject : null;
+            if (res!=null&&res.name == "StoryText")
+            {
+                UpdateDialog();
+            }
         }
     }
 
@@ -230,7 +247,7 @@ public class DialogeManager : MonoBehaviour
     {
         Dialoge.SetActive(true);
         GlobalData.Instance.isDialogueMode = true;
-
+        Debug.Log(dialogueValue);
         foreach (var row in dialogeRows)
         {
             if (row[0] == "#" && row[1] == dialogueValue)

@@ -39,7 +39,10 @@ public class PlayerMovement : MonoBehaviour
     public void OnPlayerPosChange(Vector2Int args)
     {
         PresentBlock = args;
-        ani.SetFloat("Horizontal",-1);
+        if (ani != null)
+        {
+                    ani.SetFloat("Horizontal",-1);
+        }
         Vector2 targetPosition = GetTargetPosition(Vector2.zero);
         transform.position = targetPosition;
     }
@@ -106,8 +109,8 @@ public class PlayerMovement : MonoBehaviour
         {
             //更新当前所在方块
             PresentBlock = TargetBlock;
-            //获取目标块位置
             Vector2 TargetPos = board.blocks[(int)TargetBlock.x, (int)TargetBlock.y].transform.position;
+            //获取目标块位置
             return TargetPos;
         }
         Debug.Log("目标块不可前往");

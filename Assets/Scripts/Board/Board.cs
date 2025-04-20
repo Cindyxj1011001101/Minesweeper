@@ -35,12 +35,13 @@ public class Board : MonoBehaviour
     /// </summary>
     public void Start()
     {
+        Debug.Log("StartBoard");
         boardSO.ValidateData();  // 验证地图数据的有效性
         blocks = new Block[boardSO.height, boardSO.width];  // 根据配置初始化地图数组
         GetComponent<GridLayoutGroup>().cellSize = new Vector2(blockSize, blockSize);  // 设置网格布局的单元格大小
         GetComponent<RectTransform>().sizeDelta = new Vector2(boardSO.width * blockSize, boardSO.height * blockSize);  // 设置地图整体大小
-        InitBoard();
         EventManager.Instance.TriggerEvent(EventType.TriggerDialogue, new TriggerDialogueEventArgs(DialogeEvent.EnterLevel, null));
+        InitBoard();
         //触发初次进入关卡的剧情
     }
     /// <summary>
