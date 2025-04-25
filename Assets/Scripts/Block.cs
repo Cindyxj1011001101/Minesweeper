@@ -27,15 +27,21 @@ public class Block : MonoBehaviour
     [HideInInspector] public Board board;
 
     public void OnClick(MouseButton mouseButton)
-    {
+    {           
+        Debug.Log(blockType);
         if(blockType == BlockType.Wall||blockType == BlockType.None||blockType == BlockType.Door_Opened)
         {
+
             return;
         }
 
         if (blockType == BlockType.Door_Closed && mouseButton == MouseButton.Left)
         {
             GlobalData.Instance.Message.gameObject.SetActive(true);
+        }
+        else if (blockType == BlockType.Door_Closed && mouseButton == MouseButton.Right)
+        {
+            return;
         }
         // 处理点击逻辑
         if (mouseButton == MouseButton.Left)
@@ -76,7 +82,7 @@ public class Block : MonoBehaviour
         {
             EventManager.Instance.TriggerEvent(EventType.TriggerDialogue,new TriggerDialogueEventArgs(DialogeEvent.Die,GetComponent<Block>()));
             EventManager.Instance.TriggerEvent(EventType.OpenMine);//触发地雷
-            this.GetComponent<SpriteRenderer>().sprite = board.boardSO.blockSprites[(int)BlockType.None];
+            GetComponent<SpriteRenderer>().sprite = board.boardSO.blockSprites[(int)BlockType.None];
             board.InitBoard();
         }
     }
@@ -90,7 +96,7 @@ public class Block : MonoBehaviour
             isFlagged = !isFlagged;//切换标记状态
             if (isFlagged)
             {
-                this.GetComponent<SpriteRenderer>().sprite = board.boardSO.blockSprites[(int)BlockType.Flagged];
+                GetComponent<SpriteRenderer>().sprite = board.boardSO.blockSprites[(int)BlockType.Flagged];
                 EventManager.Instance.TriggerEvent(EventType.MineNumChange, new MineNumChangeEventArgs(++board.FlaggedMineCount, board.boardSO.mineCount));
                 if(this.blockType == BlockType.Mine)
                 {
