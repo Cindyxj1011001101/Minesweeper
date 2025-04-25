@@ -39,20 +39,20 @@ public class PlayerMovement : MonoBehaviour
     public void OnPlayerPosChange(Vector2Int args)
     {
         PresentBlock = args;
-        if (ani != null)
+        if (ani != null)    
         {
-                    ani.SetFloat("Horizontal",-1);
+            ani.SetFloat("Horizontal",-1);
         }
         Vector2 targetPosition = GetTargetPosition(Vector2.zero);
         transform.position = targetPosition;
     }
     private void Update()
     {
-        if (EnterLevel)
-        {
-            this.transform.position = board.blocks[(int)PresentBlock.x, (int)PresentBlock.y].transform.position;
-            EnterLevel = false;
-        }
+        // if (EnterLevel)
+        // {
+        //     transform.position = board.blocks[(int)PresentBlock.x, (int)PresentBlock.y].transform.position;
+        //     EnterLevel = false;
+        // }
         if (!GlobalData.Instance.isDialogueMode)
         {
             // 检查是否可以移动
@@ -90,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
         //触发对话进入方块检测
         EventManager.Instance.TriggerEvent(EventType.TriggerDialogue,new TriggerDialogueEventArgs(DialogeEvent.EnterLevel, GetComponent<Block>()));
         //移动
-        this.transform.position = Vector2.Lerp(transform.position, targetPosition, Time.deltaTime * moveSpeed);
+        transform.position = Vector2.Lerp(transform.position, targetPosition, Time.deltaTime * moveSpeed);
     }
     //获取目标移动位置
     private Vector2 GetTargetPosition(Vector2 moveDirection)

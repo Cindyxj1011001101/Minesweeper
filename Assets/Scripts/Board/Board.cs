@@ -35,7 +35,6 @@ public class Board : MonoBehaviour
     /// </summary>
     public void Start()
     {
-        Debug.Log("StartBoard");
         boardSO.ValidateData();  // 验证地图数据的有效性
         blocks = new Block[boardSO.height, boardSO.width];  // 根据配置初始化地图数组
         GetComponent<GridLayoutGroup>().cellSize = new Vector2(blockSize, blockSize);  // 设置网格布局的单元格大小

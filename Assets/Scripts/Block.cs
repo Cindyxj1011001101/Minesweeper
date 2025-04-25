@@ -28,7 +28,6 @@ public class Block : MonoBehaviour
 
     public void OnClick(MouseButton mouseButton)
     {           
-        Debug.Log(blockType);
         if(blockType == BlockType.Wall||blockType == BlockType.None||blockType == BlockType.Door_Opened)
         {
 
@@ -122,7 +121,8 @@ public class Block : MonoBehaviour
         {
             SetNeighbours();
             UpdateRadar();
-            if(this.GetComponent<Open_Door>()!=null&&this.GetComponent<Open_Door>().canLeaveLevel)
+            EventManager.Instance.TriggerEvent(EventType.TriggerDialogue, new TriggerDialogueEventArgs(DialogeEvent.EnterBlock, this));
+            if(GetComponent<Open_Door>()!=null&&this.GetComponent<Open_Door>().canLeaveLevel)
             {
                 Debug.Log("通关本关");
                 EventManager.Instance.TriggerEvent(EventType.TriggerDialogue, new TriggerDialogueEventArgs(DialogeEvent.PassLevel, this));

@@ -30,7 +30,6 @@ public class DialogeManager : MonoBehaviour
 
     public void Start()
     {
-        Debug.Log("Start");
         EventManager.Instance.AddListener<TriggerDialogueEventArgs>(EventType.TriggerDialogue, TriggerDialogue);
     }
     public void OnDestroy()
@@ -227,14 +226,12 @@ public class DialogeManager : MonoBehaviour
         {
             if (row[0] == "#"&&int.Parse(row[2]) == dialogIndex)
             {
-                Debug.Log(row[0]+row[1]+row[2]+row[3]+row[4]+row[5]+row[6]);
                 UpdateText(row[3], row[5], row[4]);
                 dialogIndex = int.Parse(row[6]);
                 break;
             }
             if (row[0] == "End"&&int.Parse(row[2]) == dialogIndex)
             {
-                Debug.Log("End："+row[0]+row[1]+row[2]+row[3]+row[4]+row[5]+row[6]);
                 Dialoge.SetActive(false);
                 GlobalData.Instance.isDialogueMode = false;
             }
@@ -247,7 +244,6 @@ public class DialogeManager : MonoBehaviour
     {
         Dialoge.SetActive(true);
         GlobalData.Instance.isDialogueMode = true;
-        Debug.Log(dialogueValue);
         foreach (var row in dialogeRows)
         {
             if (row[0] == "#" && row[1] == dialogueValue)
