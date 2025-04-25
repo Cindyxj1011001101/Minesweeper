@@ -53,18 +53,16 @@ public class PlayerMovement : MonoBehaviour
         //     transform.position = board.blocks[(int)PresentBlock.x, (int)PresentBlock.y].transform.position;
         //     EnterLevel = false;
         // }
+        Vector2 moveDirection=Vector2.zero;
+        // 检查是否可以移动
         if (!GlobalData.Instance.isDialogueMode)
         {
-            // 检查是否可以移动
-            if (!GlobalData.Instance.isDialogueMode)
-            {
-                if (Time.time < nextMoveTime) return;
-                //获取按键输入
-                Vector2 moveDirection = GetInput();
-                Move(moveDirection);
-            }
-        }
 
+            if (Time.time < nextMoveTime) return;
+            //获取按键输入
+            moveDirection = GetInput();
+        }
+        Move(moveDirection);
 
     }
     public void Move(Vector2 moveDirection)
