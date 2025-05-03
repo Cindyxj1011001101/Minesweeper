@@ -13,10 +13,12 @@ public class EnteGameButton : MonoBehaviour
 
     public void EnterPauseScene()
     {
+        GlobalData.Instance.isDialogueMode = true;
         PauseMenu.SetActive(true);
     }
     public void LeavePauseScene()
     {
+        GlobalData.Instance.isDialogueMode = false;
         PauseMenu.SetActive(false);
     }
 
