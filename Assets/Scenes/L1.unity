@@ -8502,21 +8502,105 @@ MonoBehaviour:
     BlockPosition: []
     DialogeValue: 1
     TriggerOnce: 1
-  - Condition: 6
+  - Condition: 3
     BlockPosition:
-    - {x: 8, y: 9}
-    - {x: 8, y: 13}
-    DialogeValue: 2
+    - {x: 9, y: 1}
+    - {x: 9, y: 2}
+    - {x: 9, y: 3}
+    - {x: 9, y: 4}
+    - {x: 9, y: 5}
+    - {x: 9, y: 6}
+    - {x: 9, y: 7}
+    - {x: 9, y: 8}
+    - {x: 9, y: 9}
+    - {x: 9, y: 10}
+    - {x: 9, y: 11}
+    - {x: 9, y: 12}
+    - {x: 9, y: 13}
+    - {x: 9, y: 14}
+    - {x: 9, y: 16}
+    - {x: 9, y: 17}
+    - {x: 9, y: 18}
+    - {x: 9, y: 19}
+    - {x: 9, y: 20}
+    - {x: 9, y: 21}
+    - {x: 9, y: 15}
+    DialogeValue: 5
+    TriggerOnce: 1
+  - Condition: 3
+    BlockPosition:
+    - {x: 1, y: 8}
+    - {x: 1, y: 14}
+    - {x: 2, y: 8}
+    - {x: 2, y: 14}
+    - {x: 3, y: 8}
+    - {x: 3, y: 9}
+    - {x: 3, y: 10}
+    - {x: 3, y: 11}
+    - {x: 3, y: 12}
+    - {x: 3, y: 13}
+    - {x: 3, y: 14}
+    DialogeValue: 3
     TriggerOnce: 1
   - Condition: 6
     BlockPosition:
     - {x: 2, y: 9}
     - {x: 2, y: 13}
-    DialogeValue: 3
-    TriggerOnce: 1
-  - Condition: 1
-    BlockPosition: []
     DialogeValue: 4
+    TriggerOnce: 1
+  - Condition: 3
+    BlockPosition:
+    - {x: 7, y: 1}
+    - {x: 7, y: 2}
+    - {x: 7, y: 3}
+    - {x: 7, y: 4}
+    - {x: 7, y: 5}
+    - {x: 7, y: 6}
+    - {x: 7, y: 7}
+    - {x: 7, y: 8}
+    - {x: 7, y: 9}
+    - {x: 7, y: 10}
+    - {x: 7, y: 11}
+    - {x: 7, y: 12}
+    - {x: 7, y: 13}
+    - {x: 7, y: 14}
+    - {x: 7, y: 15}
+    - {x: 7, y: 16}
+    - {x: 7, y: 17}
+    - {x: 7, y: 18}
+    - {x: 7, y: 19}
+    - {x: 7, y: 20}
+    - {x: 7, y: 21}
+    DialogeValue: 2
+    TriggerOnce: 1
+  - Condition: 3
+    BlockPosition:
+    - {x: 7, y: 1}
+    - {x: 7, y: 2}
+    - {x: 7, y: 3}
+    - {x: 7, y: 4}
+    - {x: 7, y: 5}
+    - {x: 7, y: 6}
+    - {x: 7, y: 7}
+    - {x: 7, y: 8}
+    - {x: 7, y: 9}
+    - {x: 7, y: 10}
+    - {x: 7, y: 11}
+    - {x: 7, y: 12}
+    - {x: 7, y: 13}
+    - {x: 7, y: 14}
+    - {x: 7, y: 15}
+    - {x: 7, y: 16}
+    - {x: 7, y: 17}
+    - {x: 7, y: 18}
+    - {x: 7, y: 19}
+    - {x: 7, y: 20}
+    - {x: 7, y: 21}
+    DialogeValue: 2
+    TriggerOnce: 1
+  - Condition: 9
+    BlockPosition: []
+    DialogeValue: 6
     TriggerOnce: 1
   Sprite_Left: {fileID: 1733485134}
   NameText: {fileID: 925151424}
