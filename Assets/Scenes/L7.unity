@@ -30263,7 +30263,6 @@ GameObject:
   - component: {fileID: 1482279030}
   - component: {fileID: 1482279029}
   - component: {fileID: 1482279028}
-  - component: {fileID: 1482279027}
   m_Layer: 0
   m_Name: Block (11)
   m_TagString: Untagged
@@ -30291,21 +30290,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1482279027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1482279025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b9f23ff44aa40747855c151e3689889, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canLeaveLevel: 0
-  sceneName: L8
-  board: {fileID: 1808285571}
 --- !u!61 &1482279028
 BoxCollider2D:
   m_ObjectHideFlags: 0

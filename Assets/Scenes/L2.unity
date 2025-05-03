@@ -10279,7 +10279,6 @@ MonoBehaviour:
     DialogeValue: 3
     TriggerOnce: 1
   Sprite_Left: {fileID: 1397339459}
-  Sprite_Right: {fileID: 0}
   NameText: {fileID: 1397339456}
   DialogText: {fileID: 1397339457}
   CharacterSprite:
@@ -30354,7 +30353,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1619337356505549362, guid: e96f2b08a99b57546bc235a9839c79d9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5361211206916483288, guid: e96f2b08a99b57546bc235a9839c79d9, type: 3}
       propertyPath: m_Pivot.x
