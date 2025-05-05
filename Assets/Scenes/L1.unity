@@ -8560,63 +8560,18 @@ MonoBehaviour:
     BlockCondition: 0000
     DialogeValue: 4
     TriggerOnce: 1
-  - Condition: 3
+  - Condition: 5
     BlockPosition:
-    - {x: 7, y: 1}
-    - {x: 7, y: 2}
-    - {x: 7, y: 3}
-    - {x: 7, y: 4}
-    - {x: 7, y: 5}
-    - {x: 7, y: 6}
-    - {x: 7, y: 7}
-    - {x: 7, y: 8}
-    - {x: 7, y: 9}
-    - {x: 7, y: 10}
-    - {x: 7, y: 11}
-    - {x: 7, y: 12}
-    - {x: 7, y: 13}
-    - {x: 7, y: 14}
-    - {x: 7, y: 15}
-    - {x: 7, y: 16}
-    - {x: 7, y: 17}
-    - {x: 7, y: 18}
-    - {x: 7, y: 19}
-    - {x: 7, y: 20}
-    - {x: 7, y: 21}
+    - {x: 8, y: 9}
+    - {x: 8, y: 13}
     BlockCondition: 000000000000000000000000000000000000000000
-    DialogeValue: 2
-    TriggerOnce: 1
-  - Condition: 3
-    BlockPosition:
-    - {x: 7, y: 1}
-    - {x: 7, y: 2}
-    - {x: 7, y: 3}
-    - {x: 7, y: 4}
-    - {x: 7, y: 5}
-    - {x: 7, y: 6}
-    - {x: 7, y: 7}
-    - {x: 7, y: 8}
-    - {x: 7, y: 9}
-    - {x: 7, y: 10}
-    - {x: 7, y: 11}
-    - {x: 7, y: 12}
-    - {x: 7, y: 13}
-    - {x: 7, y: 14}
-    - {x: 7, y: 15}
-    - {x: 7, y: 16}
-    - {x: 7, y: 17}
-    - {x: 7, y: 18}
-    - {x: 7, y: 19}
-    - {x: 7, y: 20}
-    - {x: 7, y: 21}
-    BlockCondition: 
     DialogeValue: 2
     TriggerOnce: 1
   - Condition: 9
     BlockPosition: []
     BlockCondition: 
     DialogeValue: 6
-    TriggerOnce: 1
+    TriggerOnce: 0
   Sprite_Left: {fileID: 1733485134}
   NameText: {fileID: 925151424}
   DialogText: {fileID: 269285328}
