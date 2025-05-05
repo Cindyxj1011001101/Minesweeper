@@ -8560,7 +8560,7 @@ MonoBehaviour:
     BlockCondition: 0000
     DialogeValue: 4
     TriggerOnce: 1
-  - Condition: 5
+  - Condition: 7
     BlockPosition:
     - {x: 8, y: 9}
     - {x: 8, y: 13}
