@@ -151,6 +151,28 @@ public class DialogeManager : MonoBehaviour
                 dialog.TriggerOnce = false;
                 ShowFirstDialogue(dialog.DialogeValue);
             }
+            else if (dialog.Condition == DialogeConditionEnum.FlagAllBlock && dialog.BlockPosition.Contains(block.BoardPos)&& dialog.TriggerOnce)
+            {
+                bool cantriggerdialogue = true;
+                for (int i = 0; i < dialog.BlockPosition.Length; i++)
+                {
+                    if (dialog.BlockPosition[i] == block.BoardPos)
+                    {
+                        dialog.BlockCondition[i] = true;
+                    }
+
+                    if (dialog.BlockCondition[i] == false)
+                    {
+                        cantriggerdialogue = false;
+                    }
+                }
+                if (cantriggerdialogue)
+                {
+                    dialog.TriggerOnce = false;
+                    ShowFirstDialogue(dialog.DialogeValue);
+                }
+            }
+            
         }
     }
     public void EnterBlockDialogue(Block block)

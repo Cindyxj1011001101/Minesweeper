@@ -70,9 +70,9 @@ public class Block : MonoBehaviour
         else if (blockType == BlockType.Key&&isOpened==false)
         {
             isOpened = true;//设置为打开
-            this.GetComponent<BoxCollider2D>().isTrigger = true;//设置为触发器
+            GetComponent<BoxCollider2D>().isTrigger = true;//设置为触发器
             EventManager.Instance.TriggerEvent(EventType.OpenKey);//触发钥匙
-            this.GetComponent<SpriteRenderer>().sprite = board.boardSO.blockSprites[(int)BlockType.None];
+            GetComponent<SpriteRenderer>().sprite = board.boardSO.blockSprites[(int)BlockType.None];
             EventManager.Instance.TriggerEvent(EventType.KeyNumChange, new KeyNumChangeEventArgs(++board.OpenedKeyCount, board.boardSO.keyCount));
             //触发左键点击方块
             EventManager.Instance.TriggerEvent(EventType.TriggerDialogue,new TriggerDialogueEventArgs(DialogeEvent.LeftClickBlock, GetComponent<Block>()));
@@ -104,9 +104,9 @@ public class Block : MonoBehaviour
             }
             else
             {
-                this.GetComponent<SpriteRenderer>().sprite = board.boardSO.blockSprites[(int)BlockType.Closed];
+                GetComponent<SpriteRenderer>().sprite = board.boardSO.blockSprites[(int)BlockType.Closed];
                 EventManager.Instance.TriggerEvent(EventType.MineNumChange, new MineNumChangeEventArgs(--board.FlaggedMineCount, board.boardSO.mineCount));
-                if(this.blockType == BlockType.Mine)
+                if(blockType == BlockType.Mine)
                 {
                     board.ActuralMineCount--;
                 }

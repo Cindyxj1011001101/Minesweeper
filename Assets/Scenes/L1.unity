@@ -810,6 +810,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2516772715097828902, guid: ad6a28cbbfa42f7418185a44a6136503, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516772715097828902, guid: ad6a28cbbfa42f7418185a44a6136503, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 718800775
+      objectReference: {fileID: 0}
     - target: {fileID: 2516772716164990016, guid: ad6a28cbbfa42f7418185a44a6136503, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -8500,6 +8508,7 @@ MonoBehaviour:
   DialogCondition:
   - Condition: 0
     BlockPosition: []
+    BlockCondition: 
     DialogeValue: 1
     TriggerOnce: 1
   - Condition: 3
@@ -8525,6 +8534,7 @@ MonoBehaviour:
     - {x: 9, y: 20}
     - {x: 9, y: 21}
     - {x: 9, y: 15}
+    BlockCondition: 000000000000000000000000000000000000000000
     DialogeValue: 5
     TriggerOnce: 1
   - Condition: 3
@@ -8540,12 +8550,14 @@ MonoBehaviour:
     - {x: 3, y: 12}
     - {x: 3, y: 13}
     - {x: 3, y: 14}
+    BlockCondition: 0000000000000000000000
     DialogeValue: 3
     TriggerOnce: 1
   - Condition: 6
     BlockPosition:
     - {x: 2, y: 9}
     - {x: 2, y: 13}
+    BlockCondition: 0000
     DialogeValue: 4
     TriggerOnce: 1
   - Condition: 3
@@ -8571,6 +8583,7 @@ MonoBehaviour:
     - {x: 7, y: 19}
     - {x: 7, y: 20}
     - {x: 7, y: 21}
+    BlockCondition: 000000000000000000000000000000000000000000
     DialogeValue: 2
     TriggerOnce: 1
   - Condition: 3
@@ -8596,10 +8609,12 @@ MonoBehaviour:
     - {x: 7, y: 19}
     - {x: 7, y: 20}
     - {x: 7, y: 21}
+    BlockCondition: 
     DialogeValue: 2
     TriggerOnce: 1
   - Condition: 9
     BlockPosition: []
+    BlockCondition: 
     DialogeValue: 6
     TriggerOnce: 1
   Sprite_Left: {fileID: 1733485134}
@@ -43229,8 +43244,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 718800775
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
