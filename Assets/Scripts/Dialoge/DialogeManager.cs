@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 using UnityEngine.UI;
 using System.Linq;
 using UnityEngine.EventSystems;
@@ -21,6 +19,9 @@ public class DialogeManager : MonoBehaviour
     public Text NameText;
     [DisplayName("对话内容")]
     public Text DialogText;
+    public CharacterNameEventArgs[] CharacterName;
+    public Dictionary<string, string> CharacterNameDict = new Dictionary<string, string>();
+    
     public Dictionary<string, Sprite> CharacterSpriteDict = new Dictionary<string, Sprite>();
     public CharacterSpriteEventArgs[] CharacterSprite;
     public List<List<string>> dialogeRows = new List<List<string>>();
@@ -246,13 +247,19 @@ public class DialogeManager : MonoBehaviour
         {
             CharacterSpriteDict.Add(item.name.ToString(), item.sprite);
         }
+
+        foreach (var CharacterName in CharacterName)
+        {
+            CharacterNameDict.Add(CharacterName.name.ToString(),CharacterName.charactername);
+        }
     }
     #endregion
 
     #region 更新对话内容
     public void UpdateText(string name, string dialog, string position)
     {
-        NameText.text = name;
+        Debug.Log(name);
+        NameText.text =CharacterNameDict[name];
         DialogText.text = dialog;
         if (position == "Left")
         {

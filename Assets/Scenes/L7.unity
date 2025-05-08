@@ -8961,13 +8961,20 @@ MonoBehaviour:
   Sprite_Left: {fileID: 1134443688}
   NameText: {fileID: 1799917824}
   DialogText: {fileID: 1502405224}
+  CharacterName:
+  - name: 0
+    charactername: "T\u535A\u58EB"
+  - name: 1
+    charactername: "\u71B5\u71B5"
+  - name: 2
+    charactername: "\u963F\u7F57\u62C9"
   CharacterSprite:
   - name: 0
-    sprite: {fileID: 21300000, guid: f7c13cd1ca4a402448c06525aa0e2f81, type: 3}
+    sprite: {fileID: 21300000, guid: 0afbe15e3016ca048802aae1b56b488b, type: 3}
   - name: 1
-    sprite: {fileID: 21300000, guid: 0be14c966528f3049b674fae99f2b479, type: 3}
+    sprite: {fileID: 21300000, guid: 46cfff3bbe1bfb043ba05da15766b161, type: 3}
   - name: 2
-    sprite: {fileID: 21300000, guid: 0be14c966528f3049b674fae99f2b479, type: 3}
+    sprite: {fileID: 21300000, guid: 6480f51f25acd404688338d7b1c47a4f, type: 3}
   dialogIndex: 0
   board: {fileID: 1808285571}
 --- !u!1 &413515844
@@ -40577,6 +40584,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2516772715097828902, guid: ad6a28cbbfa42f7418185a44a6136503, type: 3}
+      propertyPath: m_Size.x
+      value: 2.2366664
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516772715097828902, guid: ad6a28cbbfa42f7418185a44a6136503, type: 3}
+      propertyPath: m_Size.y
+      value: 4.1611266
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516772715097828902, guid: ad6a28cbbfa42f7418185a44a6136503, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1645149422, guid: a4e0874e28faded489d812f173e25c8e, type: 3}
+    - target: {fileID: 2516772715097828902, guid: ad6a28cbbfa42f7418185a44a6136503, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2516772716164990016, guid: ad6a28cbbfa42f7418185a44a6136503, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -40625,6 +40648,10 @@ PrefabInstance:
       propertyPath: board
       value: 
       objectReference: {fileID: 1808285571}
+    - target: {fileID: 2516772716164990018, guid: ad6a28cbbfa42f7418185a44a6136503, type: 3}
+      propertyPath: InitSprite
+      value: 
+      objectReference: {fileID: -1645149422, guid: a4e0874e28faded489d812f173e25c8e, type: 3}
     - target: {fileID: 2516772716164990018, guid: ad6a28cbbfa42f7418185a44a6136503, type: 3}
       propertyPath: PresentBlock.x
       value: 13

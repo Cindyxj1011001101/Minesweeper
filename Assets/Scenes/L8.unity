@@ -11235,13 +11235,20 @@ MonoBehaviour:
   Sprite_Left: {fileID: 1370650720}
   NameText: {fileID: 1428813348}
   DialogText: {fileID: 835299442}
+  CharacterName:
+  - name: 0
+    charactername: "T\u535A\u58EB"
+  - name: 1
+    charactername: "\u71B5\u71B5"
+  - name: 2
+    charactername: "\u963F\u7F57\u62C9"
   CharacterSprite:
   - name: 0
-    sprite: {fileID: 21300000, guid: f7c13cd1ca4a402448c06525aa0e2f81, type: 3}
+    sprite: {fileID: 21300000, guid: 0afbe15e3016ca048802aae1b56b488b, type: 3}
   - name: 1
-    sprite: {fileID: 21300000, guid: 0be14c966528f3049b674fae99f2b479, type: 3}
+    sprite: {fileID: 21300000, guid: 46cfff3bbe1bfb043ba05da15766b161, type: 3}
   - name: 2
-    sprite: {fileID: 21300000, guid: 0be14c966528f3049b674fae99f2b479, type: 3}
+    sprite: {fileID: 21300000, guid: 6480f51f25acd404688338d7b1c47a4f, type: 3}
   dialogIndex: 0
   board: {fileID: 1808285571}
 --- !u!1 &413451947
