@@ -102,7 +102,7 @@ public class PlayerMovement : MonoBehaviour
         //如果不在棋盘内则不移动
         if (TargetBlock.x < 0 || TargetBlock.x >= board.boardSO.height || TargetBlock.y < 0 || TargetBlock.y >= board.boardSO.width)
         {
-            Debug.Log("不在棋盘内");
+            //Debug.Log("不在棋盘内");
             return board.blocks[(int)PresentBlock.x, (int)PresentBlock.y].transform.position;
         }
         //如果目标块是空块或打开则移动
@@ -118,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
             //获取目标块位置
             return TargetPos;
         }
-        Debug.Log("目标块不可前往");
+        //Debug.Log("目标块不可前往");
         return board.blocks[(int)PresentBlock.x, (int)PresentBlock.y].transform.position;
 
 
